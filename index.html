@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miraziz Mirxalilov | Futuristic Portfolio</title>
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+        
+        body { 
+            background: #0b0f19;
+            color: #f8fafc; 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+      
+        body::before {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(45deg, #a855f7, #6366f1);
+            top: 15%;
+            left: 20%;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.25;
+            z-index: 0;
+        }
+        body::after {
+            content: "";
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            background: linear-gradient(45deg, #38bdf8, #ec4899);
+            bottom: 20%;
+            right: 15%;
+            border-radius: 50%;
+            filter: blur(130px);
+            opacity: 0.2;
+            z-index: 0;
+        }
+        
+        nav { 
+            background: rgba(11, 15, 25, 0.7); 
+            backdrop-filter: blur(12px); 
+            padding: 20px 40px; 
+            text-align: center; 
+            font-size: 22px; 
+            font-weight: 800; 
+            letter-spacing: 1px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03); 
+            z-index: 10;
+        }
+        nav span { background: linear-gradient(to right, #38bdf8, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        .container { max-width: 800px; margin: auto; padding: 40px 20px; z-index: 1; flex: 1; display: flex; align-items: center; }
+
+        @keyframes cardAppear {
+            from { opacity: 0; transform: scale(0.96) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+       
+        .hero { 
+            background: rgba(17, 24, 39, 0.6); 
+            backdrop-filter: blur(20px); 
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+            padding: 60px 45px; 
+            border-radius: 32px; 
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1); 
+            text-align: center;
+            width: 100%;
+            animation: cardAppear 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        h1 { font-size: 46px; font-weight: 800; background: linear-gradient(to right, #ffffff, #cbd5e1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px; letter-spacing: -1px; }
+        
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(16, 185, 129, 0.08);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            color: #34d399;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            letter-spacing: 0.5px;
+        }
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            box-shadow: 0 0 12px #10b981;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0% { transform: scale(0.9); opacity: 0.4; } 50% { transform: scale(1.2); opacity: 1; box-shadow: 0 0 16px #34d399; } 100% { transform: scale(0.9); opacity: 0.4; } }
+
+        .about-text {
+            color: #94a3b8;
+            font-size: 16px;
+            line-height: 1.7;
+            max-width: 620px;
+            margin: 0 auto 40px auto;
+        }
+        
+        .section-title { text-align: left; font-size: 15px; color: #94a3b8; margin-bottom: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
+     
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 20px; }
+        .skill-item { 
+            background: rgba(30, 41, 59, 0.3); 
+            padding: 20px; 
+            border-radius: 20px; 
+            text-align: left; 
+            display: flex; 
+            align-items: center; 
+            gap: 16px; 
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .skill-item:hover { 
+            transform: translateY(-4px) scale(1.02);
+            background: rgba(139, 92, 246, 0.05); 
+            border-color: rgba(168, 85, 247, 0.4); 
+            box-shadow: 0 20px 30px -10px rgba(139, 92, 246, 0.2);
+        }
+        .skill-item i { background: linear-gradient(135deg, #38bdf8, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 24px; }
+        .skill-text { font-size: 16px; font-weight: 500; color: #e2e8f0; }
+
+        .social-buttons { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-top: 45px; }
+        .btn { display: inline-flex; align-items: center; gap: 12px; padding: 16px 32px; color: white; text-decoration: none; border-radius: 16px; font-weight: 700; font-size: 15px; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+        .btn:hover { transform: translateY(-4px); }
+        
+        .phone { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255,255,255,0.1); }
+        .phone:hover { background: rgba(255, 255, 255, 0.1); border-color: rgba(255,255,255,0.2); }
+        .telegram { background: #0088cc; }
+        .telegram:hover { box-shadow: 0 12px 25px rgba(0, 136, 204, 0.35); }
+        .instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+        .instagram:hover { box-shadow: 0 12px 25px rgba(220, 39, 67, 0.3); }
+
+        footer { background: rgba(11, 15, 25, 0.8); color: #475569; padding: 30px; text-align: center; font-size: 14px; border-top: 1px solid rgba(255, 255, 255, 0.02); margin-top: auto; }
+    </style>
+</head>
+<body>
+
+    <nav><span>Miraziz.space</span></nav>
+
+    <div class="container">
+        <div class="hero">
+            <h1>Miraziz Mirxalilov</h1>
+            
+            <div class="status-badge">
+                <div class="status-dot"></div>
+                Web-Dev kursi va yangi texnologiyalar ustida faol
+            </div>
+            
+            <p class="about-text">
+                Salom! Men axborot texnologiyalari sohasiga chuqur qiziquvchi mutaxassisman. Kompyuter tizimlari va texnik sozlash ishlarida tajribaga egaman. Hozirda zamonaviy veb-dasturlash (Frontend) yo'nalishini puxta o'rganmoqdaman.
+            </p>
+            
+            <div class="section-title">Asosiy Ko'nikmalarim</div>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <i class="fa-solid fa-laptop-medical"></i> 
+                    <span class="skill-text">Kompyuter texnik bilimlari</span>
+                </div>
+                <div class="skill-item">
+                    <i class="fa-solid fa-file-invoice"></i> 
+                    <span class="skill-text">Mukammal MS Office</span>
+                </div>
+                <div class="skill-item">
+                    <i class="fa-solid fa-compact-disc"></i> 
+                    <span class="skill-text">OS Windows O'rnatish</span>
+                </div>
+                <div class="skill-item">
+                    <i class="fa-solid fa-code"></i> 
+                    <span class="skill-text">Web-Dev: HTML5 & CSS3</span>
+                </div>
+            </div>
+
+            <div class="social-buttons">
+                <a href="tel:+998933296629" class="btn phone"><i class="fa-solid fa-phone"></i> 93-329-66-29</a>
+                <a href="https://t.me" target="_blank" class="btn telegram"><i class="fa-brands fa-telegram"></i> Telegram</a>
+                <a href="https://instagram.com" target="_blank" class="btn instagram"><i class="fa-brands fa-instagram"></i> Instagram</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 Miraziz Mirxalilov. Barcha zamonaviy qurilmalarga to'liq moslashtirilgan.
+    </footer>
+
+</body>
+</html>
